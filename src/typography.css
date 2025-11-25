@@ -1,0 +1,84 @@
+/* === TYPOGRAPHY STYLES FOR SMARTIE === */
+
+/* Import a friendly, rounded Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  /* === Color Palette === */
+  --color-text-primary: #e5f1ff;
+  --color-text-accent: #00cfff;
+  --color-text-secondary: #b8c4ff;
+  --color-heading-glow: rgba(0, 207, 255, 0.8);
+}
+
+/* === Base Typography === */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--color-text-primary);
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+}
+
+/* === Headings === */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2.4rem;
+  margin-bottom: 0.8rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.6rem;
+}
+
+/* === Paragraphs === */
+p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  max-width: 700px;
+}
+
+/* === Links === */
+a {
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  text-shadow: 0 0 10px var(--color-heading-glow);
+}
+
+/* === Buttons (optional, for consistency) === */
+button {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* === Utility classes === */
+.text-center {
+  text-align: center;
+}
+
+.text-glow {
+  color: var(--color-text-accent);
+  text-shadow: 0 0 8px var(--color-heading-glow), 0 0 15px rgba(127, 94, 255, 0.6);
+}
+
+.text-muted {
+  color: var(--color-text-secondary);
+}
