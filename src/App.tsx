@@ -23,9 +23,7 @@ const EuroChangeCalculator: React.FC = () => {
         value={given}
         onChange={(e) => setGiven(e.target.value)}
         type="number"
-        min="0"
-        inputMode="numeric"
-        pattern="[0-9]"
+        step="0.01"
       />
 
       <input
@@ -34,9 +32,7 @@ const EuroChangeCalculator: React.FC = () => {
         value={price}
         onChange={(e) => setPrice(e.target.value)}
         type="number"
-        min="0"
-        inputMode="numeric"
-        pattern="[0-9]"
+        step="0.01"
 
       />
 
