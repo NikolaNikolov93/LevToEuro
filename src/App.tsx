@@ -4,27 +4,7 @@ import styles from "./App.module.css";
 const EuroChangeCalculator: React.FC = () => {
   const [given, setGiven] = useState<string>("");
   const [price, setPrice] = useState<string>("");
-  const [error, setError] = useState<string>("");
 
- const handleGivenMoney = (value: string) => {
-  if (value.charCodeAt(value.length - 1) === 44) {
-    setError("Моля използвайте точка (.) за десетичен знак.");
-  }
-  else{
-  setGiven( value || "");
-  setError("");
-  }
-};
-
-const handleTotalPrice = (value: string) => {
-   if (value.charCodeAt(value.length - 1) === 44) {
-    setError("Моля използвайте точка (.) за десетичен знак.");
-  }
-  else{
-  setPrice( value || "");
-  setError("");
-  }
-};
 
 
 
@@ -41,8 +21,8 @@ const handleTotalPrice = (value: string) => {
         className={styles.input}
         placeholder="Дадена сума (лв)"
         value={given}
-        onChange={(e) => handleGivenMoney(e.target.value)}
-        type="text"
+        onChange={(e) => setGiven(e.target.value)}
+        type="number"
         inputMode="decimal"
         pattern="[0-9]*"
       />
@@ -51,8 +31,8 @@ const handleTotalPrice = (value: string) => {
         className={styles.input}
         placeholder="Цена (лв)"
         value={price}
-        onChange={(e) => handleTotalPrice(e.target.value)}
-        type="text"
+        onChange={(e) => setPrice(e.target.value)}
+        type="number"
         inputMode="decimal"
         pattern="[0-9]*"
       />
@@ -62,7 +42,8 @@ const handleTotalPrice = (value: string) => {
         <p>Ресто в евро: <strong>{changeEUR > 0 ? changeEUR.toFixed(2) : "0.00"} €</strong></p>
       </div>
       <button className={styles.resetButton} onClick={() => { setGiven(""); setPrice(""); }}>Изчисти</button>
-      {error && <p className={styles.error}>{error}</p>}
+      <p className={styles.footer}>Курс: 1 € = 1.95583 лв</p>
+      <p className={styles.error}>Моля, използвайте (.) като сепаратор</p>
     </div>
   );
 };
