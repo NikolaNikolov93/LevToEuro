@@ -7,7 +7,7 @@ const EuroChangeCalculator: React.FC = () => {
   const [error, setError] = useState<string>("");
 
  const handleGivenMoney = (value: string) => {
-  if (value.includes(",")) {
+  if (value.charCodeAt(value.length - 1) === 44) {
     setError("Моля използвайте точка (.) за десетичен знак.");
   }
   else{
@@ -17,7 +17,7 @@ const EuroChangeCalculator: React.FC = () => {
 };
 
 const handleTotalPrice = (value: string) => {
-   if (value.includes(",")) {
+   if (value.charCodeAt(value.length - 1) === 44) {
     setError("Моля използвайте точка (.) за десетичен знак.");
   }
   else{
@@ -43,6 +43,7 @@ const handleTotalPrice = (value: string) => {
         value={given}
         onChange={(e) => handleGivenMoney(e.target.value)}
         type="number"
+        inputMode="decimal"
         step="0.01"
       />
 
@@ -52,6 +53,7 @@ const handleTotalPrice = (value: string) => {
         value={price}
         onChange={(e) => handleTotalPrice(e.target.value)}
         type="number"
+        inputMode="decimal"
         step="0.01"
       />
 
