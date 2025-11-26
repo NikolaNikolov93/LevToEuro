@@ -4,6 +4,19 @@ import styles from "./App.module.css";
 const EuroChangeCalculator: React.FC = () => {
   const [given, setGiven] = useState<string>("");
   const [price, setPrice] = useState<string>("");
+  // const [error, setError] = useState<string>("");
+
+ const handleGivenMoney = (value: string) => {
+  const normalized = value.replace(",", "."); // заменя запетая с точка
+  setGiven( normalized || "");
+};
+
+const handleTotalPrice = (value: string) => {
+  const normalized = value.replace(",", ".");
+  setPrice(normalized || "");
+};
+
+
 
   const rate:number = 1.95583;
 
@@ -18,7 +31,7 @@ const EuroChangeCalculator: React.FC = () => {
         className={styles.input}
         placeholder="Дадена сума (лв)"
         value={given}
-        onChange={(e) => setGiven(e.target.value)}
+        onChange={(e) => handleGivenMoney(e.target.value)}
         type="number"
         step="0.01"
       />
@@ -27,7 +40,7 @@ const EuroChangeCalculator: React.FC = () => {
         className={styles.input}
         placeholder="Цена (лв)"
         value={price}
-        onChange={(e) => setPrice(e.target.value)}
+        onChange={(e) => handleTotalPrice(e.target.value)}
         type="number"
         step="0.01"
       />
