@@ -43,7 +43,7 @@ const handleTotalPrice = (value: string) => {
         value={given}
         onChange={(e) => handleGivenMoney(e.target.value)}
         type="text"
-        inputMode="decimal"
+        inputMode="numeric"
         step="0.01"
       />
 
@@ -53,7 +53,7 @@ const handleTotalPrice = (value: string) => {
         value={price}
         onChange={(e) => handleTotalPrice(e.target.value)}
         type="text"
-        inputMode="decimal"
+        inputMode="numeric"
         step="0.01"
       />
 
