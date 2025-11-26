@@ -44,7 +44,7 @@ const handleTotalPrice = (value: string) => {
         onChange={(e) => handleGivenMoney(e.target.value)}
         type="text"
         inputMode="numeric"
-        step="0.01"
+        pattern="[0-9]"
       />
 
       <input
@@ -54,7 +54,7 @@ const handleTotalPrice = (value: string) => {
         onChange={(e) => handleTotalPrice(e.target.value)}
         type="text"
         inputMode="numeric"
-        step="0.01"
+        pattern="[0-9]"
       />
 
       <div className={styles.resultBox}>
