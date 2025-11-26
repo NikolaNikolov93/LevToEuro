@@ -4,16 +4,26 @@ import styles from "./App.module.css";
 const EuroChangeCalculator: React.FC = () => {
   const [given, setGiven] = useState<string>("");
   const [price, setPrice] = useState<string>("");
-  // const [error, setError] = useState<string>("");
+  const [error, setError] = useState<string>("");
 
  const handleGivenMoney = (value: string) => {
-  const normalized = value.replace(",", "."); // заменя запетая с точка
-  setGiven( normalized || "");
+  if (value.includes(",")) {
+    setError("Моля използвайте точка (.) за десетичен знак.");
+  }
+  else{
+  setGiven( value || "");
+  setError("");
+  }
 };
 
 const handleTotalPrice = (value: string) => {
-  const normalized = value.replace(",", ".");
-  setPrice(normalized || "");
+   if (value.includes(",")) {
+    setError("Моля използвайте точка (.) за десетичен знак.");
+  }
+  else{
+  setPrice( value || "");
+  setError("");
+  }
 };
 
 
@@ -50,6 +60,7 @@ const handleTotalPrice = (value: string) => {
         <p>Ресто в евро: <strong>{changeEUR > 0 ? changeEUR.toFixed(2) : "0.00"} €</strong></p>
       </div>
       <button className={styles.resetButton} onClick={() => { setGiven(""); setPrice(""); }}>Изчисти</button>
+      {error && <p className={styles.error}>{error}</p>}
     </div>
   );
 };

@@ -46,3 +46,8 @@
   font-size: 16px;
   cursor: pointer;
 }
+.error{
+  color: #e74c3c;
+  font-size: 14px;
+  text-align: center;
+}
