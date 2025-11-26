@@ -42,7 +42,7 @@ const handleTotalPrice = (value: string) => {
         placeholder="Дадена сума (лв)"
         value={given}
         onChange={(e) => handleGivenMoney(e.target.value)}
-        type="number"
+        type="text"
         inputMode="decimal"
         step="0.01"
       />
@@ -52,7 +52,7 @@ const handleTotalPrice = (value: string) => {
         placeholder="Цена (лв)"
         value={price}
         onChange={(e) => handleTotalPrice(e.target.value)}
-        type="number"
+        type="text"
         inputMode="decimal"
         step="0.01"
       />
