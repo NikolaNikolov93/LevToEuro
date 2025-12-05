@@ -29,36 +29,24 @@ const sanitizeNumber = (value: string) => {
 
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.title}>Конвертиране на рестото от лев в евро(лв → €)</h1>
-      <div className={styles.inputGroup}>
-  <input
-    id="given"
-    className={styles.inputFloating}
-    type="text"
-    inputMode="decimal"
-    value={given}
-    onChange={(e) => setGiven(sanitizeNumber(e.target.value))}
-    required
-  />
-  <label htmlFor="given" className={styles.floatingLabel}>
-    Дадена сума (лв)
-  </label>
-</div>
+      <h1 className={styles.title}>Конвертиране на ресто от лев към евро(лв → €)</h1>
+      <input
+        className={styles.input}
+        placeholder="Сума дадена от клиент (лв)"
+        value={given}
+        inputMode="decimal"
+        onChange={(e) => setGiven(sanitizeNumber(e.target.value))}
+        type="text"
+      />
+      <input
+        className={styles.input}
+        placeholder="Цена (лв)"
+        value={price}
+        inputMode="decimal"
+        onChange={(e) =>setPrice(sanitizeNumber(e.target.value))}
+        type="text"
 
-<div className={styles.inputGroup}>
-  <input
-    id="price"
-    className={styles.inputFloating}
-    type="text"
-    inputMode="decimal"
-    value={price}
-    onChange={(e) => setPrice(sanitizeNumber(e.target.value))}
-    required
-  />
-  <label htmlFor="price" className={styles.floatingLabel}>
-    Цена (лв)
-  </label>
-</div>
+      />
 
       <div className={styles.resultBox}>
         <p>Ресто в лева: <strong>{changeBGN > 0 ? changeBGN.toFixed(2) : "0.00"} лв</strong></p>
