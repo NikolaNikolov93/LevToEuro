@@ -52,8 +52,7 @@ const sanitizeNumber = (value: string) => {
         placeholder="Дадена сума (лв)"
         value={given}
         onChange={(e) => setGiven(sanitizeNumber(e.target.value))}
-        type="number"
-        step="0.01"
+        type="text"
       />
 
       <input
@@ -61,8 +60,7 @@ const sanitizeNumber = (value: string) => {
         placeholder="Цена (лв)"
         value={price}
         onChange={(e) =>setPrice(sanitizeNumber(e.target.value))}
-        type="number"
-        step="0.01"
+        type="text"
 
       />
 
