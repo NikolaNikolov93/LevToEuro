@@ -30,6 +30,7 @@ const EuroChangeCalculator: React.FC = () => {
         Конвертиране на ресто от лев към евро(лв → €)
       </h1>
       <input
+        title="Въведете сумата дадена от клиент"
         className={styles.input}
         placeholder="Сума дадена от клиент (лв)"
         value={given}
@@ -38,6 +39,7 @@ const EuroChangeCalculator: React.FC = () => {
         type="text"
       />
       <input
+        title="Въведете цената на стоката"
         className={styles.input}
         placeholder="Цена (лв)"
         value={price}
