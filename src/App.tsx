@@ -4,34 +4,24 @@ import styles from "./App.module.css";
 const EuroChangeCalculator: React.FC = () => {
   const [given, setGiven] = useState<string>("");
   const [price, setPrice] = useState<string>("");
-  const [error, setError] = useState<boolean>(false);
 
-  const checkForError = (value:string) => {
-    if(value.includes(",")){
-      setError(true);
-    } else {
-      setError(false);
-    }
-  }
+const sanitizeNumber = (value: string) => {
+  let sanitized = value.replace(",", ".");
 
+  sanitized = sanitized.replace(/[^\d.]/g, "");
 
-  const setGivenPriceHandler = (value:string) => {
-    checkForError(value);
-    if(error){
-      return;
-    } else {
-      setGiven(value);
-    }
-  }
+  return sanitized;
+};
 
-  const setPriceHandler = (value:string) => {
-    checkForError(value);
-    if(error){
-      return;
-    } else {
-      setPrice(value);
-    }
-  }
+const setGivenPriceHandler = (value: string) => {
+  const cleaned = sanitizeNumber(value);
+  setGiven(cleaned);
+};
+
+const setPriceHandler = (value: string) => {
+  const cleaned = sanitizeNumber(value);
+  setPrice(cleaned);
+};
 
 
 
@@ -69,7 +59,6 @@ const EuroChangeCalculator: React.FC = () => {
         <p>Ресто в евро: <strong>{changeEUR > 0 ? changeEUR.toFixed(2) : "0.00"} €</strong></p>
       </div>
       <button className={styles.resetButton} onClick={() => { setGiven(""); setPrice(""); }}>Изчисти</button>
-      {error && <p className={styles.error}>Моля, използвайте (.) като сепаратор!</p>}
       <p className={styles.footer}>Курс: 1 € = 1.95583 лв</p>
     </div>
   );
