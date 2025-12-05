@@ -51,7 +51,7 @@
   font-size: 16px;
   cursor: pointer;
 }
-.error{
+.error {
   color: #e74c3c;
   font-size: 14px;
   text-align: center;
@@ -60,51 +60,4 @@
   font-size: 12px;
   text-align: center;
   color: #888;
-}
-/* Wrapper for floating input */
-.inputGroup {
-  position: relative;
-  margin-bottom: 20px;
-  width: 100%;
-}
-
-/* Input field */
-.inputFloating {
-  width: 100%;
-  padding: 14px 12px 6px;
-  font-size: 1rem;
-  border: 2px solid #444;
-  background: #222;
-  border-radius: 8px;
-  outline: none;
-  color: #fff;
-  transition: border 0.3s ease;
-}
-
-.inputFloating:focus {
-  border-color: #8ed8a6; /* акцента ти */
-}
-
-/* Floating label */
-.floatingLabel {
-  position: absolute;
-  left: 12px;
-  top: 14px;
-  color: #aaa;
-  font-size: 1rem;
-  pointer-events: none;
-  transition: 0.2s ease;
-}
-
-/* Move label up when focused or when there is value */
-.inputFloating:focus + .floatingLabel,
-.inputFloating:not(:placeholder-shown) + .floatingLabel {
-  top: -8px;
-  left: 10px;
-  font-size: 0.75rem;
-  background: #1e1e1e;
-  padding: 0 4px;
-  color: #8ed8a6;
-  border: 2px solid #444;
-
 }
