@@ -5,26 +5,38 @@ const EuroChangeCalculator: React.FC = () => {
   const [given, setGiven] = useState<string>("");
   const [price, setPrice] = useState<string>("");
 
+/**
+ * Sanitize input to allow only valid numeric values with dot as decimal separator
+ * @param value Input string to sanitize
+ * @returns Sanitized numeric string
+ */
 const sanitizeNumber = (value: string) => {
-  let sanitized = value.replace(",", ".");
 
+  //Replace comma with dot
+  let sanitized = value.replace(",", ".");
+  //Remove all non-numeric and non-dot characters
   sanitized = sanitized.replace(/[^\d.]/g, "");
 
   return sanitized;
 };
 
-const setGivenPriceHandler = (value: string) => {
-  const cleaned = sanitizeNumber(value);
-  setGiven(cleaned);
-};
 
-const setPriceHandler = (value: string) => {
-  const cleaned = sanitizeNumber(value);
-  setPrice(cleaned);
-};
-
-
-
+// /**
+//  * Set given price after sanitizing input
+//  * @param value Input string for given price
+//  */
+// const setGivenPriceHandler = (value: string) => {
+//   const cleaned = sanitizeNumber(value);
+//   setGiven(cleaned);
+// };
+// /**
+//  * Set price after sanitizing input
+//  * @param value Input string for price
+//  */
+// const setPriceHandler = (value: string) => {
+//   const cleaned = sanitizeNumber(value);
+//   setPrice(cleaned);
+// };
 
   const rate:number = 1.95583;
 
@@ -39,7 +51,7 @@ const setPriceHandler = (value: string) => {
         className={styles.input}
         placeholder="Дадена сума (лв)"
         value={given}
-        onChange={(e) => setGivenPriceHandler(e.target.value)}
+        onChange={(e) => setGiven(sanitizeNumber(e.target.value))}
         type="number"
         step="0.01"
       />
@@ -48,7 +60,7 @@ const setPriceHandler = (value: string) => {
         className={styles.input}
         placeholder="Цена (лв)"
         value={price}
-        onChange={(e) =>setPriceHandler(e.target.value)}
+        onChange={(e) =>setPrice(sanitizeNumber(e.target.value))}
         type="number"
         step="0.01"
 
